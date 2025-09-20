@@ -14,23 +14,23 @@ import base64
 # Add src directory to path for imports
 sys.path.append('src')
 
+try:
+    from ultralytics import YOLO
+except ImportError:
+    st.error("YOLO not found. Please install ultralytics: pip install ultralytics")
+    st.stop()
+
 # Page configuration
 st.set_page_config(
     page_title="Space Debris Detection System",
     layout="wide",
     initial_sidebar_state="expanded"
 )
-
-try:
-    from ultralytics import YOLO
-    print("✅ YOLO imported successfully")
-except ImportError as e:
-    st.error(f"❌ YOLO not found. Error: {e}")
-    st.error("Please install ultralytics: `pip install ultralytics`")
-    st.stop()
-except Exception as e:
-    st.error(f"❌ Unexpected error importing YOLO: {e}")
-    st.stop()
+st.set_page_config(
+    page_title="Space Debris Detection System",
+    layout="wide",
+    initial_sidebar_state="expanded"
+)
 
 # Custom CSS for better styling
 st.markdown("""
@@ -394,7 +394,7 @@ def main():
     st.markdown('<h3 class="section-header">Upload Image for Detection</h3>', unsafe_allow_html=True)
     
     uploaded_file = st.file_uploader(
-        "Upload Image", 
+        "", 
         type=['png', 'jpg', 'jpeg'],
         help="Upload an image containing space objects for detection",
         label_visibility="collapsed"

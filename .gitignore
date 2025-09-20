@@ -80,7 +80,7 @@ ehthumbs.db
 Thumbs.db
 
 # Model files (if large)
-*.pt
+
 *.pth
 *.onnx
 models/
